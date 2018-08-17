@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 //filter
-import AddTodo from './components/AddTodo'
+import AddTodo from './containers/AddTodo.container'
 import Footer from './components/Footer'
 
 class App extends Component {

@@ -1,26 +1,24 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import {Button} from 'primereact/button';
 import {InputText} from 'primereact/inputtext';
 
-export default class Footer extends React.Component {
+export default class AddTodo extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             todo: ""
         }
-
-        this.handleAddTodo = this.handleAddTodo.bind(this)
     }
 
-    handleAddTodo(e) {
+    handleAddTodo = (e) => {
         e.preventDefault()
         console.log(this.state.todo)
+        this.props.onAddTodo(this.state.todo)
     }
 
     render() {
-        const { onAddTodo } = this.props
-
         return (
             <div>
                 <form>
