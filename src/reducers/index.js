@@ -1,23 +1,13 @@
-import { combineReducers } from "../../node_modules/redux";
-
-const todos = (state = [], action) => {
-    console.log(action)
-    switch(action.type) {
-        case 'ADD_TODO' :
-        return [
-            ...state,
-            {
-                id: action.id,
-                text: action.text,
-                completed: false
-            }
-        ]
-
-        default:
-            return state
-    }
-}
+/**
+ * @author Edward P. Legaspi
+ * @since 1.0
+ */
+import { combineReducers } from 'redux';
+import { reducer as form } from 'redux-form';
+import { todos, visibilityFilter } from './Todo.reducer'
 
 export default combineReducers({
-    todos
-})
+  todos,
+  visibilityFilter,
+  form
+});

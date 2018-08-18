@@ -4,6 +4,7 @@ import './App.css';
 
 //filter
 import AddTodo from './containers/AddTodo.container'
+import Todos from './containers/Todos.container'
 import Footer from './components/Footer'
 
 class App extends Component {
@@ -12,6 +13,8 @@ class App extends Component {
       <div className="App">
         <h1>Hello PrimeReact</h1>
         <AddTodo></AddTodo>
+        <Todos></Todos>
+        <br />
         <Footer></Footer>
       </div>
     );
