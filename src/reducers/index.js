@@ -3,11 +3,11 @@
  * @since 1.0
  */
 import { combineReducers } from 'redux';
-import { reducer as form } from 'redux-form';
 import { todos, visibilityFilter } from './Todo.reducer'
+import { api } from './API.reducer'
 
 export default combineReducers({
   todos,
   visibilityFilter,
-  form
+  api
 });

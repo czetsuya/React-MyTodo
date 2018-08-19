@@ -9,7 +9,7 @@ import { createLogger } from 'redux-logger';
 import rootReducer from '../../reducers';
 import promise from 'redux-promise-middleware';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { crashReporter } from '../Middlewares';
+import { crashReporter, apiAuthInjector } from '../Middlewares';
 import { monitorReducerEnhancer } from '../Enhancers';
 import { apiMiddleware } from 'redux-api-middleware';
 
@@ -22,6 +22,7 @@ const configureStore = preloadedState => {
     composeWithDevTools(
       applyMiddleware(
         thunk,
+        apiAuthInjector,
         apiMiddleware,
         promiseMiddleware,
         createLogger(),
