@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-
-//filter
-import AddTodo from './containers/AddTodo.container'
-import Todos from './containers/Todos.container'
-import Footer from './components/Footer'
+import { Route, Link, Switch } from "react-router-dom";
+import Todo from './components/TodoHome'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello PrimeReact</h1>
-        <AddTodo></AddTodo>
-        <Todos></Todos>
-        <br />
-        <Footer></Footer>
+        <ul>
+          <li>
+            <Link to="/todo">Todo</Link>
+          </li>
+          <li>
+            <Link to="/api">API</Link>
+          </li>
+        </ul>
+
+        <hr />
+
+        <Switch>
+          <Route exact path="/" component={Todo} />
+          <Route path="/todo" component={Todo} />
+          <Route component={Todo} />
+        </Switch>
       </div>
     );
   }
