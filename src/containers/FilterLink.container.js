@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import FilterLink from '../components/FilterLink'
+import * as TodoAction from '../actions/Todo.action'
 
 export const VisibilityFilterType = {
     ALL: 'SHOW_ALL',
@@ -7,18 +8,14 @@ export const VisibilityFilterType = {
     ACTIVE: 'SHOW_ACTIVE'
 }
 
-// action creators
-const actionFilterTodo = (filter) => ({
-    type: 'VISIBILITY_FILTER',
-    filter
-})
+
 
 const mapStateToProps = (state, ownProps) => ({
     active: state.visibilityFilter === ownProps.filter,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    filterTodo: () => dispatch(actionFilterTodo(ownProps.filter))
+    filterTodo: () => dispatch(TodoAction.filterTodo(ownProps.filter))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterLink)

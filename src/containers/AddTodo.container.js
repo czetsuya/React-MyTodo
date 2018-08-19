@@ -1,14 +1,6 @@
 import { connect } from 'react-redux'
 import AddTodo from '../components/AddTodo'
-
-//action creators
-let nextTodoId = 0
-
-const actionAddTodo = todo => ({
-    id: nextTodoId++,
-    type: "ADD_TODO",
-    todo: todo
-})
+import * as TodoAction from '../actions/Todo.action'
 
 const mapStateToProps = (state) => ({
     todos: state.todos,
@@ -16,7 +8,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addTodo: todo => dispatch(actionAddTodo(todo))
+    addTodo: todo => dispatch(TodoAction.addTodo(todo))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddTodo)

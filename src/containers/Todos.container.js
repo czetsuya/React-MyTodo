@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import Todos from "../components/Todos";
 import { VisibilityFilterType } from './FilterLink.container'
+import * as TodoAction from '../actions/Todo.action'
 
 const filterTodos = (todos = [], filter) => {
     switch(filter) {
@@ -15,18 +16,14 @@ const filterTodos = (todos = [], filter) => {
     }
 }
 
-//action creators
-const actionToggleTodo = (todoId) => ({
-    type: 'TOGGLE_TODO',
-    id: todoId
-})
+
 
 const mapStateToProps = state => ({
     todos: filterTodos(state.todos, state.visibilityFilter)
 })
 
 const mapDispatchToProps = dispatch => ({
-    toggleTodo: todoId => dispatch(actionToggleTodo(todoId))
+    toggleTodo: todoId => dispatch(TodoAction.toggleTodo(todoId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todos)
