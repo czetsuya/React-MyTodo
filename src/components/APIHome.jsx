@@ -1,6 +1,7 @@
 import React from "react";
 import {Button} from 'primereact/button';
 import {ProgressBar} from 'primereact/progressbar';
+import UserControl from './UserControl'
 
 export default class APIHome extends React.Component {
 
@@ -15,15 +16,25 @@ export default class APIHome extends React.Component {
   }
 
   render() {
-    const { isLoading } = this.props
+    const { isLoading, result } = this.props
+
+    console.log(result)
+
     return(
       <div>
         <h1>Pull Data from my Blog</h1>
-        {isLoading ? (
+        {isLoading && (
           <ProgressBar mode="indeterminate" style={{height: '6px'}}></ProgressBar>
-        ) : (
-          <div></div>
         )}
+        <div>
+          {result && (
+            <div>
+              {result.map(e =>
+                <UserControl key={e.id} user={e}></UserControl>
+              )}
+            </div>
+          )}
+        </div>
         <Button label="Refresh" onClick={() => this.onPullData()} />
       </div>
     )

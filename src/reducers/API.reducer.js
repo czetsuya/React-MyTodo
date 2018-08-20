@@ -10,7 +10,7 @@ export const api = (state = EventAction.loadingAction(), action) => {
         case EventAction.successAction(APIContainer.API_FETCH_SOMETHING):
             return {
                 isLoading: false,
-                payload: action.payload
+                result: action.payload.data
             }
         case EventAction.failAction(APIContainer.API_FETCH_SOMETHING):
             return {
