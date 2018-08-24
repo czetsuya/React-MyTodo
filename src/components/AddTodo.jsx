@@ -1,6 +1,7 @@
 import React from 'react'
 import {Button} from 'primereact/button';
 import {InputText} from 'primereact/inputtext';
+import { connect } from 'react-redux'
 
 export default class AddTodo extends React.Component {
 
